@@ -1,0 +1,2051 @@
+/* Global Styles */
+:root {
+    --primary-color: #dc3545;
+    --orange-accent: #fd7e14;
+    --dark-color: #2E2320;
+    --light-bg: #FCFCFC;
+    --transition: all 0.3s ease;
+    --page-padding: 32px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Main Container */
+.main-container {
+    padding: var(--page-padding);
+    background: var(--light-bg);
+}
+
+/* Sticky Action Bar */
+.sticky-action-bar {
+    position: fixed;
+    top: calc(16px + var(--page-padding));
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(120px);
+    border-radius: 50px;
+    padding: 0.4rem;
+    z-index: 1100;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sticky-action-bar .container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.actions-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Navigation Hover Bubble */
+.nav-hover-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1;
+}
+
+.sticky-action-bar .nav-link {
+    color: white !important;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.sticky-action-bar .nav-link:hover {
+    color: var(--orange-accent) !important;
+}
+
+.sticky-action-bar .btn {
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    transition: var(--transition);
+}
+
+.sticky-action-bar .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.hamburger-menu {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: default; /* No pointer cursor on desktop */
+}
+
+/* Make hamburger functional only under 1600px */
+@media (max-width: 1599.98px) {
+    .hamburger-menu {
+        cursor: pointer;
+    }
+}
+
+.hamburger-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    padding: 2rem 0;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background: url('assets/hero.jpg') center/cover;
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.hero-buttons .btn {
+    padding: 16px 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn-light {
+    background: #FBFBFB;
+    border: none;
+    color: var(--dark-color);
+}
+
+.hero-buttons .btn-outline-light {
+    background: #745f63;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    backdrop-filter: blur(100px);
+}
+
+/* Logo Section */
+.logo-section {
+    position: absolute;
+    top: var(--page-padding);
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.logo-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mountain-logo {
+    width: 33.3px;
+    height: 26.3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    z-index: 2;
+}
+
+.arch-logo {
+    width: 47.3px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.brand-text {
+    margin-left: 0.5rem;
+}
+
+.brand-main {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.brand-sub {
+    font-size: 0.8rem;
+    color: white;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+.create-account-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.create-account-link a:hover {
+    color: var(--orange-accent);
+}
+
+/* Hero Bottom Section - always in column flow */
+.hero-bottom-section {
+    margin-top: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    /* On desktop, pin the countdown/socials to the bottom inside hero */
+    .hero-section {
+        display: grid;
+        grid-template-rows: 1fr auto; /* content takes space, bottom sticks */
+        min-height: 84vh; /* give enough vertical room without forcing a fixed height */
+        row-gap: 2rem;
+        padding-top: 20rem;
+    }
+    .hero-content-container { align-self: center; }
+    .hero-bottom-section { align-self: end; margin-top: 2rem; }
+}
+
+/* Inline Countdown Section */
+.countdown-section-inline {
+    margin-bottom: 0;
+}
+
+.countdown-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.countdown-time {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 800;
+    color: white;
+}
+
+#countdown {
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Inline Social Icons */
+.social-icons-section-inline {
+    margin-top: 0;
+}
+
+.social-icons-fixed {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons-fixed img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+    transition: var(--transition);
+}
+
+.social-link:hover img {
+    transform: translateY(-2px) scale(1.1);
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 120px 0;
+    background: var(--light-bg);
+}
+
+.welcome-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.welcome-subtitle {
+    color: #999999;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.2;
+}
+
+.welcome-description p {
+    font-size: 1.1rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.jesus-image {
+    width: 100%;
+    height: auto;
+    max-height: 385px;
+    border-radius: 24px;
+    object-fit: cover;
+}
+
+/* Mission Section */
+.mission-section {
+    background: #EB3300;
+    padding: 120px 0 0;
+    border-radius: 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrow-section {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 120px; /* match background width */
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-container-bg {
+    width: 120px;
+    height: auto;
+}
+
+.arrow-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 11;
+}
+
+.flow-bg {
+    position: absolute;
+    inset: 0;
+    background: url('assets/flow-bg.jpg') center/cover no-repeat;
+    background-size: cover;
+    opacity: 0.12; /* lighten faint orange bg */
+    z-index: 1;
+}
+
+/* Trim flow background top edge to avoid tinting arrow area */
+.flow-bg { clip-path: inset(18px 0 0 0); }
+
+.mission-section .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.mission-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.mission-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Action Cards */
+.action-cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    flex-wrap: wrap; /* allow wrapping on desktop */
+}
+
+.action-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 360px; /* grow/shrink with a preferred width */
+    min-width: 260px; /* prevent too small */
+    max-width: 420px; /* prevent overflow when space is tight */
+    border: 2px solid transparent;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.action-card-icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-bg {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+}
+
+.icon-arch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+}
+
+.action-card-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.action-card-description {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.action-card-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+
+.action-card-link:hover {
+    text-decoration: underline;
+}
+
+.action-card:hover {
+    border-color: var(--primary-color);
+}
+
+.action-card:hover .action-card-link {
+    text-decoration: underline;
+}
+
+/* Gospel Section */
+.gospel-top {
+    padding: 1rem 0;
+}
+
+.gospel-top .gospel-title {
+    text-align: left;
+}
+
+.gospel-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.gospel-left,
+.gospel-right {
+    flex: 1;
+}
+
+.gospel-title {
+    color: white;
+        font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.gospel-statement {
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.gospel-definition {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.disciples-image {
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    max-height: 465px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 24px 24px 0 0;
+    object-fit: cover;
+    overflow: hidden; /* ensure image does not spill out */
+}
+
+/* Love and Hope Section */
+.love-hope-section {
+    margin-top: 100px;
+    padding: 100px 0 100px;
+    background: var(--light-bg);
+    position: relative;
+}
+
+.love-hope-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.love-hope-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.love-text {
+    color: var(--primary-color);
+}
+
+.hope-text {
+    color: #192C40;
+    opacity: 0.4;
+}
+
+.love-hope-section .btn-dark {
+    background: var(--dark-color);
+    border: none;
+    padding: 16px 32px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: var(--transition);
+    width: auto;
+    white-space: nowrap;
+}
+
+.love-hope-section .btn-dark:hover {
+    background: #1a1614;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 35, 32, 0.3);
+}
+
+/* Decorative Lines */
+.love-line-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 5px;
+    background: var(--dark-color);
+    z-index: 3;
+}
+
+.love-line-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 5px;
+    height: 50px;
+    background: var(--dark-color);
+    z-index: 3;
+}
+
+/* Background Textures */
+.texture-top-right {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 756px;
+    height: 756px;
+    background: url('assets/background-texture.jpg') center/cover no-repeat;
+    z-index: 1;
+    opacity: 0.1;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    mask: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 15%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0) 85%);
+    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 15%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0) 85%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.texture-bottom-left {
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 756px;
+    height: 756px;
+    background: url('assets/background-texture.jpg') center/cover no-repeat;
+    z-index: 1;
+    opacity: 0.1;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    mask: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 15%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0) 85%);
+    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 15%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0) 85%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Global Button Styles */
+.btn {
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Volunteer Opportunities Section */
+.volunteer-opportunities-section {
+    padding: 100px 0;
+    background: var(--light-bg);
+    overflow: visible;
+}
+
+.volunteer-opportunities-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.volunteer-intro {
+    text-align: center;
+}
+
+.volunteer-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.volunteer-icon-bg {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+
+.volunteer-icon-arch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.volunteer-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.volunteer-description {
+    font-size: 1.2rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* Volunteer Carousel */
+.volunteer-carousel-container {
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 2rem;
+    cursor: grab;
+    touch-action: pan-x;
+}
+
+.volunteer-carousel {
+    display: flex;
+    gap: 2rem;
+    will-change: transform;
+    padding: 0 2rem;
+    transition: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.volunteer-card {
+    flex: 0 0 240px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.volunteer-card-image {
+    width: 100%;
+    height: 427px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    transition: var(--transition);
+    max-width: 100%;
+}
+
+.volunteer-card:hover .volunteer-card-image {
+    border-color: var(--dark-color);
+}
+
+.volunteer-card:hover .volunteer-card-title {
+    text-decoration: underline;
+}
+
+.volunteer-card-content {
+    padding: 1rem 0;
+    background: transparent;
+}
+
+.volunteer-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0;
+    transition: var(--transition);
+}
+
+
+
+/* Saved Lives Section */
+.saved-lives-section {
+    padding: 100px 0;
+    background: var(--dark-color);
+    border-radius: 48px;
+    margin-top: 3rem;
+}
+
+.saved-lives-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.saved-lives-content {
+    padding-right: 4rem;
+}
+
+.saved-lives-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.saved-lives-description {
+    font-size: 1.1rem;
+    color: #999999;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.saved-lives-section .btn-primary {
+    background: var(--primary-color);
+    border: none;
+    padding: 16px 32px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.saved-lives-section .btn-primary:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+}
+
+.saved-lives-images {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.story-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-card {
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin-bottom: 1rem;
+}
+
+.story-card:hover {
+    border-color: white;
+}
+
+.story-item:hover .story-title {
+    text-decoration: underline;
+}
+
+.large-story {
+    flex: 2;
+}
+
+.large-story .story-card {
+    height: 478px;
+    width: 478px;
+}
+
+.story-items-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.small-story {
+    width: 200px;
+}
+
+.small-story .story-card {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+}
+
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Narrow desktop responsiveness for Saved Lives (prevent cut off) */
+@media (max-width: 1299.98px) {
+    .saved-lives-images {
+        flex-direction: column; /* one column */
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .large-story,
+    .story-items-right,
+    .small-story {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* Same square size for all cards up to 1300px */
+    .saved-lives-images .story-card,
+    .large-story .story-card,
+    .small-story .story-card {
+        width: 100%;
+        max-width: 360px;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+/* Tablet-wide: shrink Saved Lives squares a bit (992px–1299px) */
+@media (max-width: 1299.98px) and (min-width: 992px) {
+    .saved-lives-images .story-card,
+    .large-story .story-card,
+    .small-story .story-card {
+        max-width: 200px; /* smaller squares in this range */
+    }
+}
+
+.story-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+    transition: var(--transition);
+}
+
+.small-story .story-title {
+    position: relative;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Footer Section */
+.footer-section {
+    background: var(--light-bg);
+    padding: 80px 0 40px;
+    margin-top: 3rem;
+}
+
+.footer-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    margin-bottom: 2rem;
+}
+
+.footer-brand-link {
+    text-decoration: none;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.footer-logo-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.footer-mountain-logo {
+    width: 33.3px;
+    height: 26.3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    z-index: 2;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(1018%) hue-rotate(314deg) brightness(96%) contrast(96%);
+}
+
+.footer-arch-logo {
+    width: 47.3px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(1018%) hue-rotate(314deg) brightness(96%) contrast(96%);
+}
+
+.footer-brand-main {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.footer-brand-sub {
+    font-size: 0.8rem;
+    color: var(--dark-color);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+.footer-contact-info {
+    margin-top: 1.5rem;
+}
+
+.footer-address {
+    font-size: 1rem;
+    color: var(--dark-color);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-phone {
+    font-size: 1rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social-link img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(1018%) hue-rotate(314deg) brightness(96%) contrast(96%);
+    transition: var(--transition);
+}
+
+.footer-social-link:hover img {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.footer-links-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5rem;
+}
+
+.footer-links {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.footer-links-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #999999;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links-list a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: var(--transition);
+}
+
+.footer-links-list a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.footer-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
+}
+
+.footer-btn {
+    padding: 12px 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: var(--transition);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.footer-actions .btn-dark {
+    background: var(--dark-color);
+    border: none;
+    color: white;
+}
+
+.footer-actions .btn-dark:hover {
+    background: #1a1614;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 35, 32, 0.3);
+}
+
+.footer-actions .btn-outline-dark {
+    background: transparent;
+    border: 2px solid var(--dark-color);
+    color: var(--dark-color);
+}
+
+.footer-actions .btn-outline-dark:hover {
+    background: var(--dark-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 35, 32, 0.3);
+}
+
+.footer-bottom {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-bottom-content {
+    text-align: left;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: #999999;
+    margin: 0;
+}
+
+.footer-copyright a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-copyright a:hover {
+    text-decoration: underline;
+}
+
+/* Focus States */
+.btn:focus,
+.nav-link:focus {
+    outline: 2px solid var(--orange-accent);
+    outline-offset: 2px;
+}
+
+/* Mobile Navigation Styles */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mobile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(120px);
+    border-radius: 16px;
+    margin-top: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.mobile-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-menu-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mobile-nav-link {
+    color: var(--dark-color) !important;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--primary-color) !important;
+}
+
+.mobile-give-link {
+    background: var(--primary-color);
+    color: white !important;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.mobile-give-link:hover {
+    background: #c82333;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* Navigation Breakpoint - Hide desktop nav at 1600px */
+@media (max-width: 1599.98px) {
+    /* Hide desktop navigation */
+    .desktop-nav {
+        display: none;
+    }
+    
+    .desktop-give-btn {
+        display: none;
+    }
+    
+    /* Hide create account link on desktop header */
+    .create-account-link {
+        display: none;
+    }
+    
+    /* Mobile navigation adjustments */
+    .sticky-action-bar {
+        padding: 0.5rem;
+        top: 10px;
+        width: auto;
+        left: auto;
+        right: calc(1rem + var(--page-padding));
+        transform: none;
+        border-radius: 50%;
+    }
+    
+    .sticky-action-bar .container {
+        justify-content: center;
+        padding: 0;
+        width: auto;
+        margin: 0;
+    }
+    
+    .hamburger-menu {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hamburger-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+
+    .hero-section {
+        min-height: 90vh;
+    }
+
+    .welcome-section {
+        padding: 60px 0;
+    }
+    
+    .welcome-section .container {
+        padding-left: var(--page-padding);
+        padding-right: var(--page-padding);
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .welcome-description {
+        padding-top: 1.5rem;
+    }
+    
+    .mission-section {
+        padding: 100px 0 0;
+    }
+    
+    .mission-title {
+        font-size: 2.5rem;
+    }
+    
+    .mission-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .love-hope-title {
+        font-size: 2.5rem;
+    }
+    
+    .volunteer-title {
+        font-size: 2.5rem;
+    }
+    
+    .volunteer-description {
+        font-size: 1.1rem;
+    }
+    
+    .action-cards-row {
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    
+    .action-card {
+        flex: 0 0 calc(50% - 1rem);
+        min-width: 200px;
+    }
+    
+    .saved-lives-section {
+        padding: 80px 0;
+    }
+    
+    .saved-lives-title {
+        font-size: 2.5rem;
+    }
+    
+    .saved-lives-images {
+        height: auto;
+        margin-top: 2rem;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center; /* center stack */
+    }
+    
+    .large-story,
+    .small-story {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    /* Ensure all story cards share same styling at tablet */
+    .saved-lives-images .story-card {
+        width: 100%;
+        max-width: 360px; /* tablet max size */
+        aspect-ratio: 1 / 1; /* always square */
+        height: auto;
+        margin: 0 auto; /* center horizontally */
+    }
+    
+    .story-items-right {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Center story titles under images on tablet */
+    .saved-lives-images .story-title {
+        text-align: center;
+    }
+    
+    /* Navigation adjustments for tablet */
+    .sticky-action-bar {
+        top: 10px;
+        padding: 0.5rem;
+    }
+    
+    .sticky-action-bar .container {
+        gap: 0.5rem;
+    }
+    
+    .desktop-nav .nav-link {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .desktop-give-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    
+    /* Mobile hero spacing only (no fixed height) */
+    .hero-section {
+        min-height: 90vh;
+        padding: 10rem 0;
+    }
+    
+    .hero-content-container {
+        padding-top: 5.5rem;
+    }
+    
+    .hero-bottom-section {
+        margin-top: 2rem;
+        gap: 1.5rem;
+    }
+    
+    /* Content sections */
+    .welcome-section {
+        padding: 40px 0;
+    }
+    
+    .welcome-section .container {
+        padding-left: var(--page-padding);
+        padding-right: var(--page-padding);
+    }
+    
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-description {
+        padding-top: 1rem;
+    }
+    
+    .mission-section {
+        padding: 80px 0 0;
+        overflow: hidden;
+    }
+    
+    .mission-title {
+        font-size: 2rem;
+    }
+    
+    .mission-subtitle {
+        font-size: 1rem;
+    }
+    
+    .arrow-section {
+        width: 120px; /* keep consistent with background */
+        height: 35px;
+        top: -16px;
+    }
+    
+    /* Keep container bg fixed width even on mobile */
+    .arrow-container-bg {
+        width: 120px;
+        height: auto;
+    }
+    
+    .arrow-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 240px;
+        margin: 0 !important;
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+    
+    .countdown-section-inline {
+        margin-bottom: 0;
+    }
+    
+    .countdown-text {
+        font-size: 1.2rem;
+    }
+    
+    #countdown {
+        font-size: 1.5rem;
+    }
+    
+    .social-icons-section-inline {
+        margin-top: 0;
+    }
+    
+    .social-icons-fixed {
+        gap: 16px;
+    }
+    
+    .social-icons-fixed img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .love-hope-section {
+        padding: 80px 0;
+    }
+    
+    .love-hope-title {
+        font-size: 2rem;
+    }
+    
+    .volunteer-title {
+        font-size: 2rem;
+    }
+    
+    .volunteer-description {
+        font-size: 1rem;
+    }
+    
+    /* Make action cards stack and full width on mobile */
+    .action-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 0 var(--page-padding);
+    }
+    
+    .action-card {
+        flex: none;
+        width: 100%;
+        max-width: 420px;
+        padding: 1.5rem;
+        margin: 0;
+    }
+    
+    .action-card-icon {
+        width: 80px;
+        height: 70px;
+        margin-bottom: 1rem;
+    }
+    
+    .action-card-title {
+        font-size: 1.3rem;
+    }
+    
+    .action-card-description {
+        font-size: 1rem;
+    }
+    
+    /* Carousel responsiveness - mobile only adjustments */
+    .volunteer-carousel {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+    
+    .volunteer-card {
+        flex: 0 0 200px;
+    }
+    
+    .volunteer-card-image {
+        height: 300px;
+    }
+    
+    /* Saved lives section */
+    .saved-lives-section {
+        padding: 60px 0;
+    }
+    
+    .saved-lives-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .saved-lives-title {
+        font-size: 2rem;
+    }
+    
+    .saved-lives-images {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        align-items: center; /* center the first image block */
+    }
+    
+    .large-story,
+    .small-story {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .large-story .story-card,
+    .small-story .story-card {
+        width: 100%;
+        max-width: 300px; /* phone max size */
+        aspect-ratio: 1 / 1; /* keep square */
+        height: auto;
+        margin: 0 auto; /* ensure horizontal centering */
+    }
+    
+    .story-items-right {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .story-title { text-align: center; }
+    
+    /* Footer responsiveness */
+    .footer-section {
+        padding: 60px 0 30px;
+    }
+    
+    .footer-actions {
+        flex-direction: column;
+        margin-top: 2rem;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+    
+    .footer-btn {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-links-container {
+        justify-content: flex-start;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* Very small screens spacing */
+    .hero-section {
+        min-height: 85vh;
+        padding: 1.5rem 0;
+    }
+    
+    .hero-content-container {
+        padding-top: 3rem;
+    }
+    
+    .hero-bottom-section {
+        margin-top: 1.5rem;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn {
+        max-width: 220px;
+        padding: 9px 14px;
+        font-size: 0.9rem;
+    }
+    
+    /* Extra small mobile adjustments */
+    .hero-title {
+        font-size: 1.9rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .container {
+        padding-left: var(--page-padding);
+        padding-right: var(--page-padding);
+    }
+    
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .mountain-logo {
+        width: 30px;
+        height: 24px;
+    }
+    
+    .arch-logo {
+        width: 42px;
+        height: 36px;
+    }
+    
+    .brand-main {
+        font-size: 1rem;
+    }
+    
+    .brand-sub {
+        font-size: 0.7rem;
+    }
+    
+    .love-hope-title {
+        font-size: 1.7rem;
+    }
+    
+    .gospel-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .gospel-statement {
+        font-size: 1.5rem;
+    }
+    
+    .gospel-definition {
+        font-size: 0.9rem;
+    }
+    
+    /* Make carousel cards smaller on very small screens */
+    .volunteer-card {
+        flex: 0 0 180px;
+    }
+    
+    .volunteer-card-image {
+        height: 270px;
+    }
+    
+    /* Action cards full width on small screens */
+    .action-card {
+        max-width: none;
+        width: 100%;
+        padding: 1.25rem;
+    }
+    
+    .action-card-title {
+        font-size: 1.2rem;
+    }
+    
+    .action-card-description {
+        font-size: 0.9rem;
+    }
+    
+    /* Footer responsiveness */
+    .footer-section {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-logo-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .footer-mountain-logo {
+        width: 30px;
+        height: 24px;
+    }
+    
+    .footer-arch-logo {
+        width: 42px;
+        height: 36px;
+    }
+    
+    .footer-brand-main {
+        font-size: 1rem;
+    }
+    
+    .footer-brand-sub {
+        font-size: 0.7rem;
+    }
+    
+    .footer-actions {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 2rem;
+    }
+    
+    .footer-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-bottom-content {
+        text-align: center;
+    }
+    
+    .footer-links-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-links {
+        text-align: left;
+    }
+}
+
+/* Global Image Responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.jesus-image,
+.disciples-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Social icons responsiveness */
+.social-icons-fixed img,
+.footer-social-link img {
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+}
+
+/* Logo images responsiveness */
+.mountain-logo,
+.arch-logo,
+.footer-mountain-logo,
+.footer-arch-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Action card icons responsiveness */
+.icon-bg,
+.volunteer-icon-bg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Story images responsiveness */
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+/* Ensure containers don't overflow */
+.container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Exception for volunteer section container to allow full-width carousel */
+.volunteer-opportunities-section .container {
+    overflow-x: visible;
+}
+
+/* Fix any potential horizontal scrolling issues */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Additional mobile layout fixes */
+@media (max-width: 767.98px) {
+    /* Ensure hero section doesn't overflow */
+    .hero-section {
+        border-radius: 24px;
+        margin: 0 -1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Maintain main container padding on mobile */
+    .main-container {
+        padding: var(--page-padding);
+    }
+    
+    /* Ensure mission section doesn't overflow */
+    .mission-section {
+        border-radius: 24px;
+        margin: 0 -1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Fix saved lives section */
+    .saved-lives-section {
+        border-radius: 24px;
+        margin: 2rem -1rem;
+    }
+    
+    /* Logo section responsive positioning */
+    .logo-section .container {
+        padding-left: var(--page-padding);
+        padding-right: var(--page-padding);
+    }
+    
+
+}
+
+@media (max-width: 575.98px) {
+    /* Very small screen adjustments */
+    .main-container {
+        padding: var(--page-padding);
+    }
+    
+    .hero-section,
+    .mission-section,
+    .saved-lives-section {
+        border-radius: 16px;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+
+    /* Ensure mission flow background fills full height on mobile */
+    .mission-section .flow-bg { height: 100%; }
+    
+    /* Make footer links stack better */
+    .footer-links-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    /* Smaller carousel cards */
+    .volunteer-carousel {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    /* Inline countdown and social on very small screens */
+    .countdown-section-inline {
+        margin-top: 3rem;
+    }
+    
+    .countdown-text {
+        font-size: 1rem;
+    }
+    
+    #countdown {
+        font-size: 1.3rem;
+    }
+    
+    .social-icons-section-inline {
+        margin-top: 2rem;
+    }
+    
+    .social-icons-fixed {
+        gap: 12px;
+    }
+    
+    .social-icons-fixed img {
+        width: 20px;
+        height: 20px;
+    }
+}
