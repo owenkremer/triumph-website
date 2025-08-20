@@ -307,7 +307,7 @@ html {
         grid-template-rows: 1fr auto; /* content takes space, bottom sticks */
         min-height: 84vh; /* give enough vertical room without forcing a fixed height */
         row-gap: 2rem;
-        padding-top: 20rem;
+        padding-top: 12rem;
     }
     .hero-content-container { align-self: center; }
     .hero-bottom-section { align-self: end; margin-top: 2rem; }

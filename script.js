@@ -82,14 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
         heroButtons.style.opacity = '0';
         heroButtons.style.transform = 'translateY(30px)';
         
+        // Countdown and social icons load immediately without animation
         if (countdownSectionInline) {
-            countdownSectionInline.style.opacity = '0';
-            countdownSectionInline.style.transform = 'translateY(30px)';
+            countdownSectionInline.style.opacity = '1';
+            countdownSectionInline.style.transform = 'translateY(0)';
         }
         
         if (socialIconsInline) {
-            socialIconsInline.style.opacity = '0';
-            socialIconsInline.style.transform = 'translateY(30px)';
+            socialIconsInline.style.opacity = '1';
+            socialIconsInline.style.transform = 'translateY(0)';
         }
         
         // Animate in sequence
@@ -111,23 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
             heroButtons.style.transform = 'translateY(0)';
         }, 900);
         
-        // Animate countdown section
-        if (countdownSectionInline) {
-            setTimeout(() => {
-                countdownSectionInline.style.transition = 'all 0.8s ease';
-                countdownSectionInline.style.opacity = '1';
-                countdownSectionInline.style.transform = 'translateY(0)';
-            }, 1200);
-        }
-        
-        // Animate social icons last
-        if (socialIconsInline) {
-            setTimeout(() => {
-                socialIconsInline.style.transition = 'all 0.8s ease';
-                socialIconsInline.style.opacity = '1';
-                socialIconsInline.style.transform = 'translateY(0)';
-            }, 1500);
-        }
     }
     
     // Mobile menu toggle
